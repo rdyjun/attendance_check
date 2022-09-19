@@ -1,20 +1,26 @@
-var videoStream = document.getElementById("video");
-var storedInterval = 0;
-
 function getVideo(){
-    navigator.getMedia = navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia;
+    let videoStream = document.getElementById('video')
 
+    navigator.getMedia =
+        navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
     navigator.getMedia({video: true, audio: false},
 
-    function(stream){
-    videoStream.srcObject = stream
-    videoStream.play();
-    },
+        function(stream) {
+            try{
+                videoStream.srcObject = stream
+                videoStream.play();
+            } catch {
 
-    function(error){
-    alert("웹캠이 작동하지 않습니다.");
-    });
+            }
+
+        },
+
+        function(error) {
+            alert('웹캠이 정상작동하지 않습니다 !');
+        });
 }
+  
+  
