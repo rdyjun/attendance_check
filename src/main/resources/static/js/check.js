@@ -22,5 +22,5 @@ function getVideo(){
             alert('웹캠이 정상작동하지 않습니다 !');
         });
 }
-  
+
   
