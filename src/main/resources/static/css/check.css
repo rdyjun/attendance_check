@@ -5,3 +5,7 @@
     width: 500px;
     background-color: black;
 }
+canvas{
+    width: 100%;
+    background-color: black;
+}
