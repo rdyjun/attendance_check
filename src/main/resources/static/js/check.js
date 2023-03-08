@@ -26,15 +26,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     function tick() {
-        outMessage.innerHTML = "QR코드를 스캔 중입니다...";
+        outMessage.innerHTML = "QR코드 스캔 준비중...";
         if(video.readyState === video.HAVE_ENOUGH_DATA) {
             canvasElement.hidden = false;
 
             // 읽어들이는 비디오 화면의 크기
             canvasElement.height = video.videoHeight;
             canvasElement.width = video.videoWidth;
-
-
 
             canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             // QR코드 인식에 실패한 경우
             else {
-                outMessage.innerHTML = "QR코드 인식에 실패하였습니다.";
+                outMessage.innerHTML = "QR코드 인식 중....";
 
             }
 
