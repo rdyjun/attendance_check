@@ -1,17 +1,18 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://webfontworld.github.io/BMJua/BMJua.css');
 
-.notosanskr * {
- font-family: 'Noto Sans KR', sans-serif;
-}
 *{
     margin: 0 auto;
     padding: 0;
-    font-family: 'Noto Sans Kr', sans-serif;
+    font-family: "BMJua";
+
     list-style: none;
 }
 a{
     text-decoration:none;
     color: black;
+}
+body {
+    background: #ecf0f3;
 }
 #main{
     border: 1px solid gray;
