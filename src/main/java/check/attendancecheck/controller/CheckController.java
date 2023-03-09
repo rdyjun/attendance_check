@@ -1,14 +1,16 @@
 package check.attendancecheck.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import check.attendancecheck.entity.Member;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class CheckController {
-    @GetMapping("check")
-    public String check(Model model){
-        model.addAttribute("data", "hello!!");
-        return "check";
+    @PostMapping("/checksuccess")
+    public Member check(@RequestBody Member member){
+        System.out.println("1");
+        return member;
     }
+
 }

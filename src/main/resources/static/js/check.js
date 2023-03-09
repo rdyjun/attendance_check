@@ -1,3 +1,16 @@
+function ck (dt) {
+    fetch("http://localhost:8080/checksuccess", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name : dt.name,
+            stdId : dt.num,
+        }),
+    }).then((response) => console.log(JSON.stringify(response)));
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     var video = document.createElement("video");
     var canvasElement = document.getElementById("canvas");
@@ -52,7 +65,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF0000");
 
                 // QR코드 메시지 출력
-                outMessage.innerHTML = code.data;
+
+                // outMessage.innerHTML = code.data;
+                ck(code.data);
                 // return을 써서 함수를 빠져나가면 QR코드 프로그램이 종료된다.
                 // return;
                 return;
@@ -62,13 +77,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 outMessage.innerHTML = "QR코드 인식 중....";
 
             }
-
         }
-
-
-
         requestAnimationFrame(tick);
 
     }
 
 });
+
