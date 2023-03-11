@@ -4,48 +4,9 @@
     min-width: 240px;
     margin-bottom: 10vh;
 }
-#btn_area{
-    width: 100%;
-    height: 20%;
-    position: relative;
-}
-#btn_area > a{
-    width: 45%;
-}
-.atdc-button{
-    text-align: center;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    width: 60%;
-    height: 100%;
-    line-height: 100%;
-    border-radius: 16px;
-    background-color: #ecf0f3;
-    cursor: pointer;
-    position: absolute;
-}
-#atdc {
-    z-index: 1;
-    transition: 0.4s;
-    box-shadow:  17px 17px 34px #c5c5c5,
-    -17px -17px 34px #ffffff;
-    opacity: 1;
-    color: #333;
-}
-#atdc2 {
-    z-index: 0;
-    transition: 0.4s;
-    box-shadow: inset 17px 17px 28px #c5c5c5,
-    inset -17px -17px 28px #ffffff;
-    opacity: 0;
-    color: #c5c5c5;
-}
 
-.atdc-button > p {
-    font-size: 220%;
-    width: inherit;
-    height: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#touch-hint {
+    font-size: 32px;
+    color: #f4444e;
+    transition: 0.6s;
 }

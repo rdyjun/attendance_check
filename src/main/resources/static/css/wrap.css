@@ -12,10 +12,9 @@ a{
     color: black;
 }
 body {
-    background: #ecf0f3;
+    background: #fff;
 }
 #main{
-    border: 1px solid gray;
     width: 50vw;
     height: 100vh;
     display: flex;
@@ -28,5 +27,4 @@ body {
     justify-content:center;
     width: 100%;
     height: 600px;
-    border: 1px solid red;
 }

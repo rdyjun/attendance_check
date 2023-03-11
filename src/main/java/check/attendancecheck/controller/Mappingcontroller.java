@@ -11,6 +11,6 @@ public class Mappingcontroller {
     }
     @GetMapping("/")
     public String mn () {
-        return "/";
+        return "index";
     }
 }
