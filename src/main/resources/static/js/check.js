@@ -5,10 +5,12 @@ function ck (dt) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            name : dt.name,
-            stdId : dt.num,
+            stdId : JSON.parse(dt).num,
+            name : JSON.parse(dt).name
         }),
     }).then((response) => console.log(JSON.stringify(response)));
+
+    location.href="localhost:8080/result";
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -57,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             // QR코드 인식에 성공한 경우
 
-            if(code) {
+            if(code && code.data != "") {
                 // 인식한 QR코드의 영역을 감싸는 사용자에게 보여지는 테두리 생성
                 drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF0000");
                 drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF0000");
