@@ -3,6 +3,7 @@ package check.attendancecheck.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Mappingcontroller {
@@ -15,7 +16,11 @@ public class Mappingcontroller {
         return "index";
     }
     @GetMapping("/result")
-    public String result(Model model) {
+    public String result(@RequestParam(name = "resultTitle", required = true) String resultTitle,
+                         @RequestParam(name = "resultHeader", required = true) String resultHeader,
+                         Model model) {
+        model.addAttribute("resultTitle", resultTitle);
+        model.addAttribute("resultHeader", resultHeader);
         return "result";
     }
 }

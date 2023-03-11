@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>출석체크 중...</title>
+    <title th:text="${resultTitle}">결과</title>
     <link href="css/wrap.css" rel="stylesheet">
     <link href="css/check.css" rel="stylesheet">
     <link rel="shortcut icon" href="#"> <!-- 아이콘 에러 -->
@@ -12,7 +12,8 @@
 <body>
 <div id="main">
     <div id="contents">
-
+        <img src="https://www.dongyang.ac.kr/sites/dongyang/images/common/logo_b.png">
+        <p th:text="${resultHeader}"></p>
     </div>
 </div>
 </body>

@@ -1,4 +1,5 @@
 function ck (dt) {
+
     fetch("http://localhost:8080/checksuccess", {
         method: "POST",
         headers: {
@@ -7,10 +8,23 @@ function ck (dt) {
         body: JSON.stringify({
             stdId : JSON.parse(dt).num,
             name : JSON.parse(dt).name
-        }),
-    }).then((response) => console.log(JSON.stringify(response)));
+        })
+    }).catch((error) => console.log(error))
+        .then((response) => console.log(response));
 
-    location.href="localhost:8080/result";
+
+        // .then((response) => console.log(JSON.stringify(response)));
+    fetch("http://localhost:8080/result" + new URLSearchParams({
+        resultTitle: "잘못된 QR코드",
+        resultHeader: "QR코드가 올바르지 않습니다 !",
+    }))
+}
+function printErr () {
+    location.href="http://localhost:8080/result" + "?" +  new URLSearchParams({
+        resultTitle: "잘못된 QR코드",
+        resultHeader: "QR코드가 올바르지 않습니다 !"
+    });
+    setTimeout(location.href="http://localhost:8080/", 1000);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -59,22 +73,30 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             // QR코드 인식에 성공한 경우
 
-            if(code && code.data != "") {
+            if(code) {
                 // 인식한 QR코드의 영역을 감싸는 사용자에게 보여지는 테두리 생성
                 drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF0000");
                 drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF0000");
                 drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF0000");
                 drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF0000");
 
-                // QR코드 메시지 출력
+                try {
+                    codeDataJson = JSON.parse(code.data);
+                } catch (e) {
+                    printErr();
+                    return;
+                }
 
+                if(codeDataJson.name == "" && codeDataJson.num == ""){
+                    printErr();
+                    return;
+                }
                 // outMessage.innerHTML = code.data;
                 ck(code.data);
                 // return을 써서 함수를 빠져나가면 QR코드 프로그램이 종료된다.
                 // return;
                 return;
             }
-            // QR코드 인식에 실패한 경우
             else {
                 outMessage.innerHTML = "QR코드 인식 중....";
 

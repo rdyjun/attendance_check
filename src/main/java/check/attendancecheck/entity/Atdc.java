@@ -23,11 +23,10 @@ public class Atdc {
     @Column(name = "type")
     private String type;
 
-    public Atdc (Member member, String type) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+    public Atdc (Member member, String type, String date) {
         this.name = member.getName();
         this.stdId = member.getStdId();
-        this.date = sdf.format(new Date());
+        this.date = date;
         this.type = type;
     }
 }
