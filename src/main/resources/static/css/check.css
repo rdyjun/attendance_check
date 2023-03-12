@@ -2,10 +2,13 @@
     margin-bottom: 36px;
 }
 #video{
-    width: 500px;
-    background-color: black;
+    width: 100%;
+    background-color: #fff;
 }
 canvas{
     width: 100%;
-    background-color: black;
+    background-color: #fff;
+}
+span {
+    font-size: 28px;
 }

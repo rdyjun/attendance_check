@@ -18,9 +18,13 @@ public class Mappingcontroller {
     @GetMapping("/result")
     public String result(@RequestParam(name = "resultTitle", required = true) String resultTitle,
                          @RequestParam(name = "resultHeader", required = true) String resultHeader,
+                         @RequestParam(name = "icon", required = true) String icon,
+                         @RequestParam(name = "iconColor", required = true) String iconColor,
                          Model model) {
         model.addAttribute("resultTitle", resultTitle);
         model.addAttribute("resultHeader", resultHeader);
+        model.addAttribute("icon", icon);
+        model.addAttribute("iconColor", iconColor);
         return "result";
     }
 }

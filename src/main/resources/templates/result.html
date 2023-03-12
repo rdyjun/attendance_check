@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <title th:text="${resultTitle}">결과</title>
     <link href="css/wrap.css" rel="stylesheet">
-    <link href="css/check.css" rel="stylesheet">
+    <link href="css/result.css" rel="stylesheet">
     <link rel="shortcut icon" href="#"> <!-- 아이콘 에러 -->
+    <link href="css/progress.css" rel="stylesheet">
     <script src="js/check.js"></script>
-    <script type="text/javascript" src="js/jsQR.js"></script>
+    <script src="js/timmer.js"></script>
 </head>
-<body>
+<body onload = "resultTimer()">
 <div id="main">
     <div id="contents">
-        <img src="https://www.dongyang.ac.kr/sites/dongyang/images/common/logo_b.png">
-        <p th:text="${resultHeader}"></p>
+        <div id="progress">
+            <div id="bar" th:Style="'background : ' + ${iconColor}">
+
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" th:utext="${icon}" th:style="'fill : ' + ${iconColor}"></svg>
+
+        <br>
+        <br>
+        <p th:utext="${resultHeader}"></p>
     </div>
 </div>
 </body>

@@ -5,22 +5,26 @@
   <title>출석체크 중...</title>
   <link href="css/wrap.css" rel="stylesheet">
   <link href="css/check.css" rel="stylesheet">
+  <link href="css/progress.css" rel="stylesheet">
   <link rel="shortcut icon" href="#"> <!-- 아이콘 에러 -->
   <script src="js/check.js"></script>
   <script type="text/javascript" src="js/jsQR.js"></script>
+  <script src="js/timmer.js"></script>
 </head>
-<body>
+<body onload="qrTimer()">
 <div id="main">
   <div id="contents">
-    <img src="https://www.dongyang.ac.kr/sites/dongyang/images/common/logo_b.png">
-    <div id="btn_area">
-      <span id="outMessage">
+    <div id="progress">
+      <div id="bar" style="background-color : #2787ff">
 
-      </span>
-      <canvas id="canvas">
-
-      </canvas>
+      </div>
     </div>
+    <span id="outMessage">
+
+    </span>
+    <canvas id="canvas">
+
+    </canvas>
   </div>
 </div>
 </body>
